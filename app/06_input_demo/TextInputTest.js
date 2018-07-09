@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, StyleSheet, Navigator} from 'react-native';
-import {
-    Container, Header, Title, Content, Icon, Button, Left, Body
-} from "native-base";
 import ToastUtil from "../utils/ToastUtil";
 import stroage from '../utils/StorageUtil';
 
@@ -24,68 +21,27 @@ export default class TextInputTest extends Component {
 
     render() {
         return (
-            <Container>
-                <Header style={{backgroundColor: 'white', height: 48}}>
+           
+                
 
-                    <Left>
+                  
                         <Button transparent onPress={()=>this._onCloseClick()}>
-                            <Icon name='arrow-back' style={{color: '#333'}}/>
+                           
                         </Button>
-                    </Left>
+                  
 
-                    <Body>
-                    <Title style={{color: '#333'}}>登录</Title>
+                  
 
-                    </Body>
 
-                </Header>
+                  
+                
 
-                <Content style={{backgroundColor: 'white'}}>
-                    <View style={{marginTop: 60}}>
-                        <View style={TextInputStyle.view_account_input_container}>
-                            <Icon name="ios-person" style={TextInputStyle.icon_account}/>
-                            <TextInput
-                                style={TextInputStyle.input_account}
-                                placeholder={'手机号'}
-                                placeholderTextColor={'#b2b2b2'}
-                                keyboardType={'numeric'}
-                                maxLength={11}
-                                returnKeyType={'next'}
-                                underlineColorAndroid={'transparent'}
-                                onChangeText={(input)=> {
-                                    this.setState({account: input})
-                                }}
-                            />
-                        </View>
-                        <View style={TextInputStyle.view_password_input_container}>
-                            <TextInput
-                                style={TextInputStyle.input_password}
-                                placeholder={'验证码'}
-                                placeholderTextColor={'#b2b2b2'}
-                                keyboardType={'numeric'}
-                                maxLength={6}
-                                returnKeyType={'next'}
-                                clearTextOnFocus={true}
-                                underlineColorAndroid={'transparent'}
-                                onChangeText={(input)=> {
-                                    this.setState({password: input})
-                                }}
-                            />
+                      
+                           
 
-                            <Text
-                                onPress={()=>this._fetchVerifyCode()}
-                                style={TextInputStyle.tv_verify_code}>{this.state.verifyString}</Text>
 
-                        </View>
-                        <Button block
-                                onPress={()=>this._onLoginButtonClick()}
-                                style={TextInputStyle.btn_commit}>
-                            <Text style={{fontSize: 18, color: 'white'}}>登录</Text>
-                        </Button>
-                    </View>
-
-                </Content>
-            </Container>
+                
+            
         )
     }
 

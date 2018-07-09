@@ -4,7 +4,7 @@
  * Desc:
  */
 import React, {Component} from 'react';
-import {StyleSheet, View, Image, Text, ScrollView, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, View, Image, Text, ScrollView, TouchableWithoutFeedback,NativeModules,DeviceEventEmitter} from 'react-native';
 
 import ToastUtil from "../utils/ToastUtil";
 import VideoDetailPage from './video_detail/VideoDetailPage';
@@ -14,6 +14,14 @@ import LoginPage from '../06_input_demo/TextInputTest';
  * 个人中心，头像，昵称部分
  */
 class Header extends Component {
+	componentWillMount(){
+    DeviceEventEmitter.addListener("EventName",(msg)=>{    
+      alert(msg.position);
+    });
+  }
+
+
+
     render() {
         return (
             <View style={ProfilePageStyle.container}>
@@ -136,11 +144,24 @@ export default class ProfilePage extends Component {
 
     //头像点击事件
     _onAvatarClick() {
+    	NativeModules.ToastShow.sendEventDemo("1");
         ToastUtil.show("点击了头像");
     }
 
     //昵称点击事件
     _onNameClick() {
+    		NativeModules.ToastShow.pickImage().
+    		then(
+    			(msg)=>{
+    				alert(msg);
+    				ToastUtil.show(msg);
+    			}
+    		).catch(
+    			(err)=>{
+    				alert(err);
+    				ToastUtil.show(err);
+    			}
+    		);
         ToastUtil.show("点击了昵称");
     }
 

@@ -5,10 +5,13 @@
  */
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
+import ToastExample from './ToastExample';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 export default class ParallaxTest extends Component {
+	
     render() {
+    	ToastExample.show('自定义Toast', ToastExample.SHORT);
         return (
             <ParallaxScrollView
                 backgroundColor="blue"

@@ -3,10 +3,11 @@
  * Desc:仿开眼App的demo，所包含页面有一部分是之前demo中的各类示例
  */
 import React, {Component} from "react";
-import {StyleSheet, Image} from "react-native";
+import {StyleSheet, Image,NativeModules,DeviceEventEmitter} from "react-native";
 import TabNavigator from "react-native-tab-navigator";
 import SelectedPage from "../05_scroll_demo/ListViewTest";
 import BannerTest from "../03_library_demo/BannerTest";
+import CallbackDemo from "./CallbackDemo";
 import ProfilePage from './ProfilePage';
 
 const SELECTED_TAG = 'selected';
@@ -40,7 +41,7 @@ export default class MainPage extends Component {
     }
 
     render() {
-        return (
+        return (      
             <TabNavigator
                 tabBarStyle={MainPageStyle.tab_container}
                 tabBarShadowStyle={{height: 0}}>
@@ -90,7 +91,7 @@ export default class MainPage extends Component {
             case EXPLORE_TAG:
                 return (<BannerTest {...this.props}/>);
             case FOLLOW_TAG:
-                return (<BannerTest {...this.props}/>);
+                return (<CallbackDemo {...this.props}/>);
             case PROFILE_TAG:
                 return (<ProfilePage {...this.props}/>);
         }

@@ -3,7 +3,7 @@
  * Desc:使用ListView展示网络数据
  */
 import React, {Component} from "react";
-import {ListView, Text, RefreshControl, StyleSheet, View, Image} from "react-native";
+import {ListView, Text, RefreshControl, StyleSheet, View, Image,NativeModules,DeviceEventEmitter} from "react-native";
 
 import VideoListItem from "./VideoListItem";
 import ToastUtil from "../utils/ToastUtil";
@@ -15,6 +15,14 @@ import DimensUtil from '../utils/DimensUtil';
 const videoUrl = 'http://baobab.wandoujia.com/api/v1/feed?num=1';
 
 export default class ListViewTest extends Component {
+	
+	componentWillMount(){
+    DeviceEventEmitter.addListener("EventLife",(msg)=>{  
+    	  console.log(msg);
+      alert(msg.life);
+    });
+  }
+	
     constructor(props) {
         super(props)
         /**
@@ -109,7 +117,10 @@ export default class ListViewTest extends Component {
 
     //处理列表item的点击事件
     _onItemClick(rowData, rowId) {
-        //ToastUtil.show("点击了" + rowId);
+    	if(rowId == 1){
+    		NativeModules.ToastShow.showTime();
+    	}
+        ToastUtil.show("点击了" + rowId);
         const {navigator} = this.props;
         if (navigator) {
             navigator.push({

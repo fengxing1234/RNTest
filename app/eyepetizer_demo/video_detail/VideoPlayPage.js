@@ -5,9 +5,7 @@
  */
 import React, {Component} from 'react';
 import {Text, Navigator, StyleSheet, View} from 'react-native';
-import {
-    Container, Header, Title, Content, Button, Icon, Left, Body
-} from "native-base";
+
 import JsonUtil from '../../utils/JsonUtil';
 import Video from 'react-native-video';
 

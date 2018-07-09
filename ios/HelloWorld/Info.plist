@@ -95,6 +95,9 @@
       <string>SanFranciscoBold.ttf</string>
       <string>SanFranciscoThin.ttf</string>
       <string>Zocial.ttf</string>
+      <string>MaterialCommunityIcons.ttf</string>
+      <string>SimpleLineIcons.ttf</string>
+      <string>Feather.ttf</string>
     </array>
   </dict>
 </plist>

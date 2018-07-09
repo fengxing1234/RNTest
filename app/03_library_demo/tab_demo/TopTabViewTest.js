@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {TabViewAnimated, TabBarTop} from 'react-native-tab-view';
+import HelloWorld from "../../00_helloworld_demo/HelloWorld";
 import FlexTest from "../../01_flex_demo/FlexTest";
 import FlexDiceTest from "../../01_flex_demo/FlexDiceTest";
 import FetchNetData from "../../02_fetch_demo/FetchNetData";
@@ -19,6 +20,7 @@ export default class TopTabViewTest extends Component {
             {key: '2', title: '热点'},
             {key: '3', title: '科技'},
             {key: '4', title: '数码'},
+            {key: '5', title: '冯星'},
         ],
     };
 
@@ -43,6 +45,8 @@ export default class TopTabViewTest extends Component {
                 return <FetchNetData/>;
             case '4':
                 return <BannerTest/>;
+            case '5':
+            		return <HelloWorld/>;
             default:
                 return null;
         }
